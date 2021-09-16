@@ -1,9 +1,14 @@
 package org.van;
 //import java.util.ArrayList;
 // part 2 of fizzbuzz
-
+// search edge cases by calculating the lcm for each situation
+import java.util.Scanner;
 public class FizzBuzz {
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input max number");
+        int maxNum = scanner.nextInt();
 
         // different messages depending on division
         String mOThree = "Fizz";
@@ -12,7 +17,9 @@ public class FizzBuzz {
         String mOEleven = "Bong";
         String mOThirteen = "Fezz";
 
-        for ( int i = 1; i <= 300; i++ ) {
+
+
+        for ( int i = 1; i <= maxNum; i++ ) {
 
             String ans = "";
             String ansReverse = "";
@@ -40,8 +47,9 @@ public class FizzBuzz {
             // check for multiple of 13, also check existence of a fizz
             if ( i % 13 == 0 ) {
                 if (ans.contains("F")) {
-                    ans = ans.substring(0, 4) + mOThirteen + ans.substring(4, ans.length());
-                    ansReverse = ansReverse.substring(0, 4) + mOThirteen + ansReverse.substring(4, ansReverse.length());
+                    int tempLen = ans.length();
+                    ans = ans.substring(0, 4) + mOThirteen + ans.substring(4, tempLen);
+                    ansReverse = ansReverse.substring(0, tempLen - 4) + mOThirteen + ansReverse.substring(tempLen - 4, tempLen);
                 } else {
                     // if no Fizz exist
                     ans = mOThirteen + ans;
