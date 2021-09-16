@@ -5,5 +5,6 @@ public class test {
         String test = "Hello world";
         System.out.println(test.length());
         System.out.println(test.substring(0,3));
+        System.out.println("3 + 5");
     }
 }
